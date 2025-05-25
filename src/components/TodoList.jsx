@@ -17,11 +17,11 @@ function TodoList() {
     fetchTodoItem();
   }, [currentPage]);
 
+  const apiKey = import.meta.env.VITE_API_KEY;
+
   async function fetchTodoItem() {
     try {
-      const response = await fetch(
-        "https://jsonplaceholder.typicode.com/todos"
-      );
+      const response = await fetch(`${apiKey}`);
       const data = await response.json();
       setTodoItem(data);
       console.log(data);
